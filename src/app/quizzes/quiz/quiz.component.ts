@@ -20,6 +20,9 @@ export class QuizComponent implements OnInit {
   @Output()
   quizSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  @Output()
+  quizDeleted: EventEmitter<Quiz> = new EventEmitter<Quiz>();
+
   constructor() {
   }
 
@@ -27,6 +30,12 @@ export class QuizComponent implements OnInit {
   }
 
   selectQuiz() {
-    this.quizSelected.emit(true);
+    this.quizSelected.emit(true); //va renvoyer l'information au parent
+
+  }
+
+  deleteQuiz(quiz: Quiz) {
+    console.log("quiz deleted:",quiz);
+    this.quizDeleted.emit(quiz);
   }
 }
