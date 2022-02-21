@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="question-list">
+  <div class="quiz" *ngFor="let question of questionList">
+    <!--Inputs & Output allow communication between parent & child components.-->
+    <!--More information: https://angular.io/guide/component-interaction-->
+    <app-question [question]="question" (questionDeleted)="questionToDeleted(question) "></app-question>
+  </div>
+</div>

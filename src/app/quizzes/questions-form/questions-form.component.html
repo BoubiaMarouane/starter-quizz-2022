@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+<h1>
+  {{id}}
+</h1>
 
-</body>
-</html>
+<div class="card">
+  <h2> Create a new question</h2>
+  Title <br>
+  <div [formGroup]="questionForm">
+  <input class="input-custom" type="text" [formControlName]="'label'" >
+  <br>
+  <button class="button-card" (click)="addAnswer()">Add Answer</button>
+  <div class="answer" formArrayName="answers">
+    <div *ngFor="let address of answers.controls; let i=index">
+      <div class="answer-form" [formGroupName]="i">
+        <label>
+          Answer
+          <input type="text" [formControlName]="'value'">
+          <br>
+          Correct
+          <input type="checkbox" [formControlName]="'isCorrect'">
+        </label>
+        <br>
+      </div>
+    </div>
+    <button class="button-card" (click)="addQuestion()">Create</button>
+  </div>
+  </div>
+</div>
+
+<app-question-list></app-question-list>
+

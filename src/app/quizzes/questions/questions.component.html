@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="card" *ngIf="question">
+  <h2>
+    <i  class="fab fa-leanpub"></i>
+    {{question.label}} : <br>
+  </h2>
+  <br>
+  <div *ngFor="let reponse of question.answers; let i=index">
+    {{i}} : {{reponse.value}} <i *ngIf="reponse.isCorrect===true" class="fa-solid fa-check"></i> <br>
+  </div>
+  <button class="button-card" (click)="questionDelete(question)">Delete</button>
+</div>
